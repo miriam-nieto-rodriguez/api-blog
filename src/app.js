@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use('/api', require('./routes/api.routes.js'));
+app.use('/api', require('./routes/api.js'));
 
 
 app.use((req, res, next) => {
