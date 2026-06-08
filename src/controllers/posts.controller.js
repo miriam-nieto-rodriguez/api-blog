@@ -17,6 +17,24 @@ const getById = (req, res) => {
     res.json(req.post)
 }
 
+const getPostsByAutor = async (req, res) => {
+    try {
+        const {
+            autorId
+        } = req.params;
+
+        const posts = await PostModel.selectByAutorId(autorId)
+
+        res.json(posts)
+
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error al recuperar los posts del autor',
+            error: error.message
+        });
+    }
+}
+
 const createPost = async (req, res) => {
     try {
         const result = await PostModel.insertPost(req.body)
@@ -43,5 +61,6 @@ const createPost = async (req, res) => {
 module.exports = {
     getAll,
     getById,
+    getPostsByAutor,
     createPost
 }

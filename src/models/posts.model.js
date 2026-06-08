@@ -19,7 +19,18 @@ const selectById = async (postId) => {
 
     if (result.length === 0) return null
     return result[0]
+    
+}
 
+const selectByAutorId = async (autorId) => {
+    const [result] = await db.query(
+       `SELECT p.*, a.nombre AS autor_nombre, a.email AS autor_email, a.imagen AS autor_imagen
+        FROM posts AS p
+        INNER JOIN autores AS a ON p.fk_autores_id = a.id
+        WHERE p.fk_autores_id = ?`,
+        [autorId]
+    );
+    return result
 }
 
 const insertPost = async ({
@@ -40,5 +51,6 @@ const insertPost = async ({
 module.exports = {
     selectAll,
     selectById,
+    selectByAutorId,
     insertPost
 }
