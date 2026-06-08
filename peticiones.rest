@@ -1,0 +1,42 @@
+@HOST = http://localhost:3000
+
+GET {{HOST}}/api/autores
+
+###
+GET {{HOST}}/api/autores/3
+
+###
+
+GET {{HOST}}/api/autores/1/posts
+
+
+###
+POST {{HOST}}/api/autores
+Content-Type: application/json
+
+{
+    "nombre": "Álvaro",
+    "email": "alvaro@gmail.com",
+    "imagen": "https://ejemplo2.com/foto.jpg"
+}
+
+
+### POSTS ####
+
+GET {{HOST}}/api/posts
+
+###
+
+GET {{HOST}}/api/posts/2
+
+###
+POST {{HOST}}/api/posts
+Content-Type: application/json
+
+{
+    "titulo": "Nuevo post 3",
+    "descripcion": "Probando a insertar un nuevo post",
+    "categoria": "NodeJs",
+    "fk_autores_id": 4
+}
+
