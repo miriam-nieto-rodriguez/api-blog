@@ -2,7 +2,6 @@ const PostModel = require('../models/posts.model');
 
 const getAll = async (req, res) => {
     try {
-
         const posts = await PostModel.selectAll()
         res.json(posts)
 
@@ -19,9 +18,7 @@ const getById = (req, res) => {
 
 const getPostsByAutor = async (req, res) => {
     try {
-        const {
-            autorId
-        } = req.params;
+        const { autorId } = req.params;
 
         const posts = await PostModel.selectByAutorId(autorId)
 
@@ -43,7 +40,7 @@ const createPost = async (req, res) => {
 
         if (!nuevoPost) {
             return res.status(404).json({
-                message: ' no existe un post con ese ID'
+                message: 'No existe un post con ese ID'
             })
         }
 
