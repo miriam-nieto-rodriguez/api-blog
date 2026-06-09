@@ -1,9 +1,7 @@
 const AutorModel = require('../models/autores.model')
 
 const checkAutorId = async (req, res, next) => {
-    const {
-        autorId
-    } = req.params;
+    const { autorId } = req.params;
 
     if (isNaN(autorId)) {
         return res.status(400).json({
@@ -17,9 +15,9 @@ const checkAutorId = async (req, res, next) => {
             error: 'No existe el autor con ese ID'
         });
     }
+
     req.autor = autor;
-
-
+    
     next();
 }
 

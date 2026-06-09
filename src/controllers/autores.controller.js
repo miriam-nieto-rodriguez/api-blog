@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Error al consultar la BBDD '
+            message: 'Error al consultar la BBDD'
         });
     }
 }

@@ -1,13 +1,13 @@
 const db = require('../config/db');
 
 const selectAll = async () => {
-    const [result] = await db.query ('select * from autores')
+    const [result] = await db.query ('SELECT * FROM autores')
     return result;
 }
 
 const selectById = async (autorId) => {
     const [result] = await db.query (
-        'select * from autores where id = ?',
+        'SELECT * FROM autores WHERE id = ?',
         [autorId]
     );
 
